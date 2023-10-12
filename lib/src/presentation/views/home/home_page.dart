@@ -95,7 +95,7 @@ class _HomePageState extends ViewState<HomePage, HomeViewModel> {
                                             onTap: () => Modular.to.pushNamed('/detail', arguments: character),
                                             child: Hero(
                                               tag: character.id,
-                                              child: Column(
+                                              child: Wrap(
                                                 children: [
                                                   SizedBox(
                                                     height: 230,
