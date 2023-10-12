@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:marvel_comics/src/presentation/widgets/shimmer.dart';
+
 
 class LoadingShimmer extends StatelessWidget {
   const LoadingShimmer({super.key});
@@ -31,3 +34,7 @@ class LoadingShimmer extends StatelessWidget {
     );
   }
 }
+
+
+
+
