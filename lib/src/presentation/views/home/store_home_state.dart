@@ -1,11 +1,16 @@
+import 'package:equatable/equatable.dart';
 import 'package:marvel_comics/src/domain/domain.dart';
-
 import '../../../core/core.dart';
 
-class HomeState extends ViewModelState {
+class HomeState extends ViewModelState with EquatableMixin {
   factory HomeState.initial() => const HomeState();
 
-  const HomeState({this.loading = false, this.characters = const [], this.page = 0, this.error = false});
+  const HomeState({
+    this.loading = false,
+    this.characters = const [],
+    this.page = 0,
+    this.error = false,
+  });
 
   final bool loading;
   final int page;
@@ -25,4 +30,7 @@ class HomeState extends ViewModelState {
       characters: characters ?? this.characters,
     );
   }
+
+  @override
+  List<Object?> get props => [loading, page, error, characters];
 }

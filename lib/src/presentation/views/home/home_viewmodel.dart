@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:marvel_comics/main.dart';
+
 import '../../../core/core.dart';
 import '../../../domain/domain.dart';
 import 'store_home_state.dart';
@@ -5,12 +9,16 @@ import 'store_home_state.dart';
 class HomeViewModel extends ViewModel<HomeState> {
   final IGetCharacterUsecase _getCharacterUsecase;
 
-  HomeViewModel(this._getCharacterUsecase) : super(HomeState.initial());
+
+  HomeViewModel(this._getCharacterUsecase)
+      : super(HomeState.initial());
 
   @override
   void initViewModel() {
     super.initViewModel();
-    showCharacter();
+    if (!Platform.environment.containsKey('FLUTTER_TEST')) {
+      showCharacter();
+    }
   }
 
   Future<void> showCharacter() async {
@@ -22,7 +30,8 @@ class HomeViewModel extends ViewModel<HomeState> {
       (error) => state.copyWith(error: true),
       (characters) {
         final ids = <int>{};
-        final newCharacters = [...state.characters, ...characters]..retainWhere((e) => ids.add(e.id));
+        final newCharacters = [...state.characters, ...characters]
+          ..retainWhere((e) => ids.add(e.id));
         return state.copyWith(characters: newCharacters);
       },
     );

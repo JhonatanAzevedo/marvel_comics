@@ -1,4 +1,10 @@
-class Comic {
+import 'package:equatable/equatable.dart';
+
+class Comic extends Equatable {
   final String name;
-  Comic({required this.name});
+
+  const Comic({required this.name});
+
+  @override
+  List<Object?> get props => [name];
 }
