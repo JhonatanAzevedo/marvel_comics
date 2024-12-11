@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:marvel_comics/main.dart';
-
 import '../../../core/core.dart';
 import '../../../domain/domain.dart';
 import 'store_home_state.dart';
@@ -9,9 +7,7 @@ import 'store_home_state.dart';
 class HomeViewModel extends ViewModel<HomeState> {
   final IGetCharacterUsecase _getCharacterUsecase;
 
-
-  HomeViewModel(this._getCharacterUsecase)
-      : super(HomeState.initial());
+  HomeViewModel(this._getCharacterUsecase) : super(HomeState.initial());
 
   @override
   void initViewModel() {
